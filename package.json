@@ -1,0 +1,33 @@
+{
+  "name": "buildyou",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "flask-dev": "FLASK_DEBUG=1  /Users/tevinwang/.julia/conda/3/bin/python -m pip install -r requirements.txt && /Users/tevinwang/.julia/conda/3/bin/python -m flask --app src/app/api/index run -p 5328",
+    "next-dev": "next dev",
+    "dev": "concurrently \"npm run next-dev\" \"npm run flask-dev\"",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@descope/react-sdk": "^1.0.10",
+    "@nextui-org/react": "^2.0.21",
+    "@types/node": "20.5.0",
+    "@types/react": "18.2.20",
+    "@types/react-dom": "18.2.7",
+    "autoprefixer": "10.4.15",
+    "concurrently": "^8.0.1",
+    "dotenv": "^16.3.1",
+    "eslint": "8.47.0",
+    "eslint-config-next": "13.4.16",
+    "next": "13.4.16",
+    "next-auth": "^4.23.0",
+    "postcss": "8.4.28",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tailwindcss": "3.3.3",
+    "typescript": "5.1.6",
+    "vectordb": "^0.2.1"
+  }
+}
