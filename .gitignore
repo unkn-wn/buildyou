@@ -38,3 +38,5 @@ next-env.d.ts
 data
 **.tar.gz
 **.pyc
+venv
+**.lance

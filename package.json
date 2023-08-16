@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "flask-dev": "FLASK_DEBUG=1  /Users/tevinwang/.julia/conda/3/bin/python -m pip install -r requirements.txt && /Users/tevinwang/.julia/conda/3/bin/python -m flask --app src/app/api/index run -p 5328",
+    "flask-dev": "FLASK_DEBUG=1 pip install -r requirements.txt && python -m flask --app src/app/api/index run -p 5328",
     "next-dev": "next dev",
     "dev": "concurrently \"npm run next-dev\" \"npm run flask-dev\"",
     "build": "next build",
