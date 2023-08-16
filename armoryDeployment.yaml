@@ -1,0 +1,23 @@
+version: v1
+kind: kubernetes
+application: buildyou
+
+targets:
+  buildyou-prod:
+    account: buildyou-prod
+    namespace: default
+    strategy: myCanary
+
+manifests:
+  - path: manifests/
+
+strategies:
+  myCanary:
+    canary:
+      steps:
+        - setWeight:
+            weight: 50
+        - pause:
+            untilApproved: true
+        - setWeight:
+            weight: 100
