@@ -8,10 +8,10 @@ import { useState } from "react";
 
 export default function Home() {
   const { data: session } = useSession()
-  const [image, setImage] = useState();
+  const [image, setImage] = useState<Blob>();
   const [prompt, setPrompt] = useState("");
 
-  const promptSubmit = (e) => {
+  const promptSubmit = (e: any) => {
     // Create the JSON payload with the 'prompt' property
     const data = {
       prompt: prompt
@@ -26,9 +26,7 @@ export default function Home() {
       body: JSON.stringify(data)
     })
       .then(response => response.blob())
-      .then(blob => {
-        setImage(blob);
-      })
+      .then(blob => setImage(blob))
       .catch(error => {
         // Handle any errors that occur during the request
         console.error("Error:", error);
@@ -39,7 +37,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-center lg:p-24 md:p-12 p-4">
       {!image && (
         <div className="w-1/5 mb-5">
-          <img src="/buildyou.png" fill alt="buildyou logo">
+          <img src="/buildyou.png" alt="buildyou logo">
           </img>
         </div>
       )}
@@ -80,7 +78,7 @@ export default function Home() {
                 Download
               </a>
               <div className="absolute bottom-0 right-0 px-10 py-4 bg-opacity-50 w-1/5 mb-5">
-                <img src="/buildyou.png" fill alt="buildyou logo">
+                <img src="/buildyou.png" alt="buildyou logo">
                 </img>
               </div>
             </>
