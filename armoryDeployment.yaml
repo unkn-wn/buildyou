@@ -3,16 +3,32 @@ kind: kubernetes
 application: buildyou
 
 targets:
-  buildyou-prod:
-    account: buildyou-prod
-    namespace: default
-    strategy: myCanary
-
+  staging:
+    account: docker-desktop
+    namespace: staging
+    strategy: rolling
+  prod:
+    account: docker-desktop
+    namespace: prod
+    strategy: trafficSplit
+    constraints:
+      dependsOn: ["staging"]
+      beforeDeployment:
+        - pause:
+            untilApproved: true
 manifests:
-  - path: manifests/
+  - path: manifests/namespace-staging.yaml
+    targets: ["staging"]
+  - path: manifests/namespace-prod.yaml
+    targets: ["prod"]
 
 strategies:
-  myCanary:
+  rolling:
+    canary:
+      steps:
+        - setWeight:
+            weight: 100
+  trafficSplit:
     canary:
       steps:
         - setWeight:
