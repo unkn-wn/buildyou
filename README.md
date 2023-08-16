@@ -1,6 +1,6 @@
-!(image)[public/logo_black_bg.png]
+![image](public/logo_black_bg.png)
 
-(Devpost Link)[https://devpost.com/software/buildyou]
+[Devpost Link](https://devpost.com/software/buildyou)
 
 ## Inspiration 💡
 As the digital world expands, our lives become increasingly intertwined with virtual interactions, and the need to express ourselves as who we want to be has become more crucial than ever. This has created a rift between us and the digital "us", and we often find ourselves searching for ways to represent our emotions, thoughts, and identities.
